@@ -1,0 +1,825 @@
+1. Class and Object Basics (Easy) 
+Problem: 
+Create a class Student with attributes name and roll_no. Take input from the user and 
+display the student's details. 
+
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int roll_no;
+    void getData() {
+        cin >> name >> roll_no;
+    }
+    void display() {
+        cout << "Name: " << name << "\nRoll No: " << roll_no;
+    }
+};
+
+int main() {
+    Student s;
+    s.getData();
+    s.display();
+    return 0;
+}
+
+
+
+2. Constructor Initialization (Easy) 
+Problem: 
+Write a class Book with a parameterized constructor to initialize title and price. Print the 
+book details. 
+
+#include <iostream>
+using namespace std;
+
+class Book {
+public:
+    string title;
+    float price;
+    Book(string t, float p) : title(t), price(p) {}
+    void display() {
+        cout << "Title: " << title << "\nPrice: " << price;
+    }
+};
+
+int main() {
+    Book b("C++ Guide", 499.99);
+    b.display();
+    return 0;
+}
+
+
+
+3. Single Inheritance (Easy) 
+Problem: 
+Create two classes: Person (with name) and Employee (inherits from Person, with salary). 
+Display both attributes.
+
+#include <iostream>
+using namespace std;
+
+class Person {
+public:
+    string name;
+};
+class Employee : public Person {
+public:
+    float salary;
+    void display() {
+        cout << "Name: " << name << "\nSalary: " << salary;
+    }
+};
+
+int main() {
+    Employee e;
+    e.name = "John";
+    e.salary = 55000;
+    e.display();
+    return 0;
+}
+
+
+
+4. Multilevel Inheritance (Medium) 
+Problem: 
+Create a base class Vehicle, a derived class Car, and a further derived class ElectricCar. 
+Add a method to print the complete info. 
+
+#include <iostream>
+using namespace std;
+
+class Vehicle {
+public:
+    string brand;
+};
+class Car : public Vehicle {
+public:
+    string model;
+};
+class ElectricCar : public Car {
+public:
+    int batteryLife;
+    void display() {
+        cout << brand << " " << model << " " << batteryLife << "hrs";
+    }
+};
+
+int main() {
+    ElectricCar ec;
+    ec.brand = "Tesla";
+    ec.model = "Model S";
+    ec.batteryLife = 10;
+    ec.display();
+    return 0;
+}
+
+
+
+5. Method Overloading (Easy) 
+Problem: 
+Create a class Calculator with overloaded methods add() for adding two integers, three 
+integers, and two floats.
+
+#include <iostream>
+using namespace std;
+
+class Calculator {
+public:
+    int add(int a, int b) { return a + b; }
+    int add(int a, int b, int c) { return a + b + c; }
+    float add(float a, float b) { return a + b; }
+};
+
+int main() {
+    Calculator c;
+    cout << c.add(2, 3) << "\n";
+    cout << c.add(2, 3, 4) << "\n";
+    cout << c.add(2.5f, 3.5f) << "\n";
+    return 0;
+}
+
+
+
+6. Method Overriding & Polymorphism (Medium) 
+Problem: 
+Create a base class Shape with method draw(). Override this method in derived classes 
+Circle and Rectangle. Use a pointer to call draw() based on object type. 
+
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual void draw() { cout << "Drawing Shape\n"; }
+};
+class Circle : public Shape {
+public:
+    void draw() override { cout << "Drawing Circle\n"; }
+};
+class Rectangle : public Shape {
+public:
+    void draw() override { cout << "Drawing Rectangle\n"; }
+};
+
+int main() {
+    Shape* s;
+    Circle c;
+    Rectangle r;
+    s = &c; s->draw();
+    s = &r; s->draw();
+    return 0;
+}
+
+
+
+7. Operator Overloading (Medium) 
+Problem: 
+Overload the + operator to add two complex numbers using a Complex class. 
+
+#include <iostream>
+using namespace std;
+
+class Complex {
+public:
+    int r, i;
+    Complex(int x = 0, int y = 0) : r(x), i(y) {}
+    Complex operator+(Complex c) {
+        return Complex(r + c.r, i + c.i);
+    }
+    void show() { cout << r << "+" << i << "i\n"; }
+};
+
+int main() {
+    Complex c1(2, 3), c2(4, 5), c3;
+    c3 = c1 + c2;
+    c3.show();
+    return 0;
+}
+
+
+
+8. Abstract Class & Interface-like Behavior (Medium) 
+Problem: 
+Create an abstract class Animal with a pure virtual function makeSound(). Derive Dog and 
+Cat from it and override the function.
+
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void makeSound() = 0;
+};
+class Dog : public Animal {
+    void makeSound() override { cout << "Woof\n"; }
+};
+class Cat : public Animal {
+    void makeSound() override { cout << "Meow\n"; }
+};
+
+int main() {
+    Dog d;
+    Cat c;
+    Animal* a;
+    a = &d; a->makeSound();
+    a = &c; a->makeSound();
+    return 0;
+}
+
+
+
+9. Constructor Overloading (Easy) 
+Problem: 
+Write a class Box with overloaded constructors: one with no parameters, one with width and 
+height, and one with all dimensions. 
+
+#include <iostream>
+using namespace std;
+
+class Box {
+public:
+    int w, h, d;
+    Box() { w = h = d = 0; }
+    Box(int w, int h) : w(w), h(h), d(0) {}
+    Box(int w, int h, int d) : w(w), h(h), d(d) {}
+    void show() { cout << w << " " << h << " " << d << "\n"; }
+};
+
+int main() {
+    Box b1, b2(2, 3), b3(2, 3, 4);
+    b1.show(); b2.show(); b3.show();
+    return 0;
+}
+
+
+
+10. Exception Handling (Medium) 
+Problem: 
+Take two integers from the user and perform division. Handle the case where the denominator 
+is zero using try-catch.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    try {
+        if (b == 0) throw "Division by zero!";
+        cout << "Result: " << a / b;
+    } catch (const char* msg) {
+        cout << msg;
+    }
+    return 0;
+}
+
+
+
+11. Encapsulation Using Getters and Setters (Easy) 
+Problem: 
+Create a class BankAccount with private data members accountNumber and balance. 
+Provide getter and setter methods to access and update them.
+
+#include <iostream>
+using namespace std;
+
+class BankAccount {
+private:
+    int accountNumber;
+    float balance;
+public:
+    void set(int acc, float bal) { accountNumber = acc; balance = bal; }
+    int getAcc() { return accountNumber; }
+    float getBal() { return balance; }
+};
+
+int main() {
+    BankAccount b;
+    b.set(12345, 1000.5);
+    cout << "Account: " << b.getAcc() << "\nBalance: " << b.getBal();
+    return 0;
+}
+
+
+
+12. Protected Access Modifier (Easy) 
+Problem: 
+Create a base class Parent with a protected member familyName. Inherit a class Child and 
+display the family name using it. 
+
+#include <iostream>
+using namespace std;
+
+class Parent {
+protected:
+    string familyName = "Pawar";
+};
+class Child : public Parent {
+public:
+    void show() { cout << familyName; }
+};
+
+int main() {
+    Child c;
+    c.show();
+    return 0;
+}
+
+
+
+13. Hierarchical Inheritance (Medium) 
+Problem: 
+Create a base class Employee, and two derived classes Manager and Clerk. Display all 
+relevant information using hierarchical inheritance. 
+
+#include <iostream>
+using namespace std;
+
+class Employee {
+public:
+    string name;
+};
+class Manager : public Employee {
+public:
+    void show() { cout << "Manager: " << name; }
+};
+class Clerk : public Employee {
+public:
+    void show() { cout << "Clerk: " << name; }
+};
+
+int main() {
+    Manager m;
+    Clerk c;
+    m.name = "Harshad";
+    c.name = "Ravi";
+    m.show();
+    cout << "\n";
+    c.show();
+    return 0;
+}
+
+
+
+14. Hybrid Inheritance (Medium) 
+Problem: 
+Create a class structure to demonstrate hybrid inheritance using Student, Sports, and 
+Marks classes, all contributing to a Result class.
+
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    int roll;
+};
+class Sports {
+public:
+    int score;
+};
+class Marks : public Student {
+public:
+    int marks;
+};
+class Result : public Sports, public Marks {
+public:
+    void display() {
+        cout << "Roll: " << roll << ", Marks: " << marks << ", Score: " << score;
+    }
+};
+
+int main() {
+    Result r;
+    r.roll = 1;
+    r.marks = 90;
+    r.score = 8;
+    r.display();
+    return 0;
+}
+
+
+
+15. Composition ("Has-a" relationship) (Easy) 
+Problem: 
+Create a class Engine and a class Car that has an Engine object. Show composition by 
+calling a function of Engine through Car. 
+
+#include <iostream>
+using namespace std;
+
+class Engine {
+public:
+    void start() { cout << "Engine started\n"; }
+};
+
+class Car {
+    Engine e;
+public:
+    void startCar() { e.start(); }
+};
+
+int main() {
+    Car c;
+    c.startCar();
+    return 0;
+}
+
+
+
+16. Static Members (Easy) 
+Problem: 
+Write a class Counter that counts the number of objects created using a static member.
+
+#include <iostream>
+using namespace std;
+
+class Counter {
+public:
+    static int count;
+    Counter() { count++; }
+};
+
+int Counter::count = 0;
+
+int main() {
+    Counter a, b, c;
+    cout << "Objects created: " << Counter::count;
+    return 0;
+}
+
+
+
+17. Friend Function (Medium) 
+Problem: 
+Create a class Box and use a friend function compareVolume() to compare volumes of two 
+Box objects.
+
+#include <iostream>
+using namespace std;
+
+class Box {
+    int volume;
+public:
+    Box(int v) : volume(v) {}
+    friend void compareVolume(Box, Box);
+};
+
+void compareVolume(Box b1, Box b2) {
+    if (b1.volume > b2.volume)
+        cout << "Box1 is bigger\n";
+    else
+        cout << "Box2 is bigger\n";
+}
+
+int main() {
+    Box b1(100), b2(80);
+    compareVolume(b1, b2);
+    return 0;
+}
+
+
+
+18. Inline Functions (Easy) 
+Problem: 
+Define an inline member function in class Math that returns the square of a number. 
+
+#include <iostream>
+using namespace std;
+
+class Math {
+public:
+    inline int square(int x) { return x * x; }
+};
+
+int main() {
+    Math m;
+    cout << "Square: " << m.square(5);
+    return 0;
+}
+
+
+
+
+19. Default Constructor and Destructor (Easy) 
+Problem: 
+Create a class Demo that displays messages from its constructor and destructor.
+
+#include <iostream>
+using namespace std;
+
+class Demo {
+public:
+    Demo() { cout << "Constructor called\n"; }
+    ~Demo() { cout << "Destructor called\n"; }
+};
+
+int main() {
+    Demo d;
+    return 0;
+}
+
+
+
+20. Virtual Function and Runtime Polymorphism (Medium) 
+Problem: 
+Create a base class Account with a virtual function calculateInterest(), and override it 
+in SavingsAccount and CurrentAccount. 
+
+#include <iostream>
+using namespace std;
+
+class Account {
+public:
+    virtual void calculateInterest() { cout << "Base Account Interest\n"; }
+};
+
+class SavingsAccount : public Account {
+public:
+    void calculateInterest() override { cout << "Savings Interest\n"; }
+};
+
+class CurrentAccount : public Account {
+public:
+    void calculateInterest() override { cout << "Current Interest\n"; }
+};
+
+int main() {
+    Account* a;
+    SavingsAccount s;
+    CurrentAccount c;
+    a = &s; a->calculateInterest();
+    a = &c; a->calculateInterest();
+    return 0;
+}
+
+
+
+
+21. Array of Objects (Easy) 
+Problem: 
+Create a class Item with properties id and price. Create an array of 5 objects and display 
+their details. 
+
+#include <iostream>
+using namespace std;
+
+class Item {
+public:
+    int id;
+    float price;
+    void get() { cin >> id >> price; }
+    void show() { cout << id << " " << price << "\n"; }
+};
+
+int main() {
+    Item items[5];
+    for (int i = 0; i < 5; i++) items[i].get();
+    for (int i = 0; i < 5; i++) items[i].show();
+    return 0;
+}
+
+
+
+22. Multiple Inheritance (Medium) 
+Problem: 
+Create classes Teacher and Researcher. Derive a class Professor that inherits from both. 
+Show multiple inheritance in action.
+
+#include <iostream>
+using namespace std;
+
+class Teacher {
+public:
+    void teach() { cout << "Teaching\n"; }
+};
+class Researcher {
+public:
+    void research() { cout << "Researching\n"; }
+};
+class Professor : public Teacher, public Researcher {
+public:
+    void work() { teach(); research(); }
+};
+
+int main() {
+    Professor p;
+    p.work();
+    return 0;
+}
+
+
+
+
+23. Operator Overloading: Unary Operator (Medium) 
+Problem: 
+Overload the unary - operator to negate the value of a class object representing a number.
+
+#include <iostream>
+using namespace std;
+
+class Number {
+    int value;
+public:
+    Number(int v) : value(v) {}
+    void operator-() { value = -value; }
+    void show() { cout << value; }
+};
+
+int main() {
+    Number n(5);
+    -n;
+    n.show();
+    return 0;
+}
+
+
+
+24. Copy Constructor (Medium) 
+Problem: 
+Create a class Book and implement a copy constructor that copies the details of another book 
+object.
+
+#include <iostream>
+using namespace std;
+
+class Book {
+public:
+    string title;
+    Book(string t) : title(t) {}
+    Book(const Book& b) { title = b.title; }
+    void show() { cout << title; }
+};
+
+int main() {
+    Book b1("C++");
+    Book b2 = b1;
+    b2.show();
+    return 0;
+}
+
+
+
+25. Constructor with Default Arguments (Easy) 
+Problem: 
+Create a class Rectangle with a constructor that has default values for width and height. 
+
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+    int w, h;
+public:
+    Rectangle(int a = 1, int b = 1) : w(a), h(b) {}
+    void area() { cout << "Area: " << w * h; }
+};
+
+int main() {
+    Rectangle r1(4, 5), r2;
+    r1.area(); cout << "\n";
+    r2.area();
+    return 0;
+}
+
+
+
+26. Virtual Destructor (Medium) 
+Problem: 
+Create a base class Shape and derived class Triangle. Use a virtual destructor to ensure 
+proper cleanup.
+
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual ~Shape() { cout << "Shape destroyed\n"; }
+};
+class Triangle : public Shape {
+public:
+    ~Triangle() { cout << "Triangle destroyed\n"; }
+};
+
+int main() {
+    Shape* s = new Triangle();
+    delete s;
+    return 0;
+}
+
+
+
+27. Overloading Comparison Operator (Medium) 
+Problem: 
+ Overload the == operator in a Time class to compare two time objects.
+
+#include <iostream>
+using namespace std;
+
+class Time {
+public:
+    int h, m;
+    Time(int h, int m) : h(h), m(m) {}
+    bool operator==(Time t) {
+        return h == t.h && m == t.m;
+    }
+};
+
+int main() {
+    Time t1(2, 30), t2(2, 30);
+    if (t1 == t2)
+        cout << "Equal";
+    else
+        cout << "Not equal";
+    return 0;
+}
+
+
+
+28. File Handling with Class (Medium) 
+Problem: 
+ Create a class Student and write object data to a file and read it back. 
+ 
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int roll;
+    void get() { cin >> name >> roll; }
+    void show() { cout << name << " " << roll; }
+};
+
+int main() {
+    Student s1, s2;
+    s1.get();
+    ofstream out("student.txt");
+    out << s1.name << " " << s1.roll;
+    out.close();
+
+    ifstream in("student.txt");
+    in >> s2.name >> s2.roll;
+    s2.show();
+    return 0;
+}
+
+
+
+
+29. Object as Function Argument (Easy) 
+Problem: 
+ Create a class Circle and write a function that takes a Circle object as an argument to 
+compute area. 
+ 
+#include <iostream>
+using namespace std;
+
+class Circle {
+public:
+    float radius;
+    Circle(float r) : radius(r) {}
+    friend float area(Circle);
+};
+
+float area(Circle c) {
+    return 3.14f * c.radius * c.radius;
+}
+
+int main() {
+    Circle c(5);
+    cout << "Area: " << area(c);
+    return 0;
+}
+
+
+
+
+30. Array of Pointers to Objects (Medium) 
+Problem: 
+ Create a class Animal and an array of pointers to dynamically allocate and manage 3 animals
+
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    void speak() { cout << "Animal sound\n"; }
+};
+
+int main() {
+    Animal* a[3];
+    for (int i = 0; i < 3; i++)
+        a[i] = new Animal;
+
+    for (int i = 0; i < 3; i++)
+        a[i]->speak();
+
+    for (int i = 0; i < 3; i++)
+        delete a[i];
+
+    return 0;
+}
+
