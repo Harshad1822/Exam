@@ -1,3 +1,6 @@
+#Lavda Rushikesh 
+#Chutiya sanskar 
+
 # 1.  Air Quality Analysis: Inbuilt dataset: airquality in R
 # A. Filter the records for the month of July.
 # B. Group the data by Month and calculate the average Ozone.
