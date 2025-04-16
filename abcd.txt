@@ -1,0 +1,124 @@
+1&16 Assign grades based on score
+Assign different grades to students based on their scores.
+If a student scores above 90, assign grade A
+If a student scores above 75, assign grade B
+If a student scores above 65, assign grade C
+Ans:- def grade(score):
+    if score > 90:
+        return 'A'
+    elif score > 75:
+        return 'B'
+    elif score > 65:
+        return 'C'
+    else:
+        return 'F'
+score = int(input("Enter student's score: "))
+print("Grade:", grade(score))
+ 
+2,7,12,17,27,32,&37  to do slice
+ Write a code in Python to do slice [2:5] for following string.
+“THISISWORLDBESTPRATICE”
+Ans:- string = "THISISWORLDBESTPRATICE"
+            print(string[2:5])
+
+ 
+ 3,8,13,28,33&38 file operation.
+ Perform following file operation.
+Read file content 
+Write into the file
+Ans:- file = open("example.txt", "w")
+file.write("Hello, this is some text written into the file.")
+file.close()
+file = open("example.txt", "r")
+print(file.read())
+file.close()
+4,9,14,19,24&29 class with two deta member 
+ Develop a code in python for following scenario
+A single class should be mentioned in the code
+There should be two data members in the class.
+Ans:- class ExampleClass:
+    def __init__(self, member1, member2):
+        self.member1 = member1
+        self.member2 = member2
+    def display_members(self):
+        print(f"Member 1: {self.member1}")
+        print(f"Member 2: {self.member2}")
+obj = ExampleClass("Hello", 42)
+obj.display_members()
+  
+
+
+
+
+5,10,15,20,30&40 
+6,11&26
+Develop a code in python suing for loop to print 5th ,  9th ,table. 
+ for i in range(1, 11):
+    print(f"5 x {i} = {5 * i}")
+same for 9th 
+18 
+Perform following file operation.
+Append file content 
+Write into the file    
+with open("myfile.txt", "w") as file:
+    file.write("This is the original content.\n")
+with open("myfile.txt", "a") as file:
+    file.write("This is the appended content.\n")
+with open("myfile.txt", "r") as file:
+    print(file.read())  
+21. Assign different grades to students based on their scores.
+
+•	If a student scores above 85 assign grade A+
+•	If a student scores above 75 and below 85, assign grade B
+If a student scores above 65 and below 75, assign grade C
+ def assign_grade(score):
+    if score > 85:
+        return "A+"
+    elif 75 < score <= 85:
+        return "B"
+    elif 65 < score <= 75:
+        return "C"
+    else:
+        return "F"  
+scores = [90, 80, 70, 60]
+for score in scores:
+    print(f"Score: {score}, Grade: {assign_grade(score)}")
+34	Develop a code in python for following scenario
+1.	A single class should be mentioned in the code
+There should be four data members in the class. 
+ class Student:
+    def __init__(self, name, age, grade, school):
+        self.name = name      # Data member 1
+        self.age = age        # Data member 2
+        self.grade = grade    # Data member 3
+        self.school = school  # Data member 4
+    def display_info(self):
+        print(f"Name: {self.name}, Age: {self.age}, Grade: {self.grade}, School: {self.school}")
+student1 = Student("Alice", 15, "10th", "XYZ High School")
+student1.display_info()
+36	Implement a program that takes a user's age and categorizes them into different life stages. The program should classify the user as a Child (age less than 13), Teenager (age between 13 and 19 37inclusive), Adult (age between 20 and 64 inclusive), or Senior (age 65 and above). Write a Python program that prompts the user to input their age and then uses if, elif, and else statements to determine and display the appropriate life stage based on the given age. For example, if the user enters 15, the program should output "You are a Teenager.
+	
+ # Function to determine life stage based on age
+def categorize_age(age):
+    if age < 13:
+        return "You are a Child."
+    elif 13 <= age <= 19:
+        return "You are a Teenager."
+    elif 20 <= age <= 64:
+        return "You are an Adult."
+    else:  # age 65 and above
+        return "You are a Senior."
+
+# Taking user input
+try:
+    age = int(input("Enter your age: "))  # Ensures valid integer input
+    print(categorize_age(age))
+except ValueError:
+    print("Please enter a valid number for age.")
+35 - Square Root Question: Find the square root of a user-defined number using the math library 
+Answer (Code):
+ import math
+ num = float(input("Enter a number: ")) 
+print("Square root is:", math.sqrt(num))
+
+
