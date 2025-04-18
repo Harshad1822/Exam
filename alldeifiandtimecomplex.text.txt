@@ -1,0 +1,215 @@
+Here is a complete and categorized list of Data Structures and Algorithms (DSA) definitions:
+
+---
+
+## 1. Basic Terminology
+- **Data Structure**: A format for organizing, managing, and storing data to enable efficient access and modification.
+- **Algorithm**: A finite sequence of well-defined instructions to solve a specific problem.
+- **Time Complexity**: A measure of the amount of time an algorithm takes to complete as a function of the input size.
+- **Space Complexity**: A measure of the amount of memory space an algorithm uses as a function of the input size.
+- **Big O Notation**: Describes the upper bound of the time complexity of an algorithm.
+- **Big Theta (Θ) Notation**: Describes the exact time complexity.
+- **Big Omega (Ω) Notation**: Describes the lower bound of the time complexity.
+
+---
+
+## 2. Linear Data Structures
+- **Array**: A collection of items stored at contiguous memory locations.
+- **Linked List**: A collection of nodes where each node contains data and a pointer to the next node.
+  - **Singly Linked List**: Nodes have one pointer to the next node.
+  - **Doubly Linked List**: Nodes have two pointers: next and previous.
+  - **Circular Linked List**: Last node points to the head node.
+- **Stack**: A linear data structure which follows LIFO (Last In First Out).
+- **Queue**: A linear data structure which follows FIFO (First In First Out).
+  - **Circular Queue**: The last position is connected to the first to make a circle.
+  - **Deque**: Double-ended queue, insertion and deletion possible at both ends.
+- **Hash Table/Hash Map**: A structure that maps keys to values using a hash function.
+
+---
+
+## 3. Non-Linear Data Structures
+- **Tree**: A hierarchical structure with nodes.
+  - **Binary Tree**: Each node has at most two children.
+  - **Binary Search Tree (BST)**: Left child < Parent < Right child.
+  - **AVL Tree**: A self-balancing BST.
+  - **Red-Black Tree**: A self-balancing BST with color properties.
+  - **Heap**: A complete binary tree.
+    - **Min Heap**: Parent node is smaller than children.
+    - **Max Heap**: Parent node is larger than children.
+  - **Segment Tree**: Used for range query problems.
+  - **Fenwick Tree (Binary Indexed Tree)**: Efficient structure for range sum queries.
+  - **Trie (Prefix Tree)**: Tree used to store dynamic sets of strings.
+- **Graph**: A set of nodes (vertices) connected by edges.
+  - **Directed Graph**: Edges have a direction.
+  - **Undirected Graph**: Edges do not have direction.
+  - **Weighted Graph**: Edges carry a weight or cost.
+  - **Adjacency Matrix**: 2D array representation.
+  - **Adjacency List**: Array of lists representation.
+
+---
+
+## 4. Algorithm Paradigms
+- **Recursion**: A function calling itself to solve subproblems.
+- **Backtracking**: Trying all possibilities and undoing steps when a solution path fails.
+- **Divide and Conquer**: Divide the problem into subproblems, solve them recursively, and combine.
+- **Greedy Algorithm**: Makes the locally optimal choice at each step.
+- **Dynamic Programming (DP)**: Solving overlapping subproblems using memoization or tabulation.
+- **Memoization**: Caching results of expensive function calls.
+- **Tabulation**: Bottom-up dynamic programming approach.
+
+---
+
+## 5. Searching Algorithms
+- **Linear Search**: Scans the list item by item.
+- **Binary Search**: Repeatedly divides a sorted array to find an element.
+
+---
+
+## 6. Sorting Algorithms
+- **Bubble Sort**: Repeatedly swaps adjacent elements if they are in the wrong order.
+- **Selection Sort**: Selects the smallest element and places it at the beginning.
+- **Insertion Sort**: Builds the sorted array one item at a time.
+- **Merge Sort**: Divide the array into halves, sort and merge them.
+- **Quick Sort**: Picks a pivot and partitions the array.
+- **Heap Sort**: Uses a heap to sort elements.
+- **Counting Sort**: Counts occurrences and uses that to place elements.
+- **Radix Sort**: Sorts numbers digit by digit.
+- **Bucket Sort**: Distributes elements into buckets and sorts them.
+
+---
+
+## 7. Graph Algorithms
+- **Breadth First Search (BFS)**: Explores neighbors level by level.
+- **Depth First Search (DFS)**: Explores as far as possible along a branch.
+- **Dijkstra’s Algorithm**: Shortest path algorithm for graphs with non-negative weights.
+- **Bellman-Ford Algorithm**: Handles graphs with negative weights.
+- **Floyd-Warshall Algorithm**: All-pairs shortest path.
+- **Kruskal’s Algorithm**: Finds minimum spanning tree using edge sorting.
+- **Prim’s Algorithm**: Finds minimum spanning tree using vertex selection.
+- **Topological Sort**: Orders vertices of a Directed Acyclic Graph (DAG).
+- **Union-Find (Disjoint Set)**: Efficient structure for network connectivity.
+
+---
+
+## 8. Miscellaneous
+- **Amortized Analysis**: Average time per operation over a sequence of operations.
+- **Lazy Propagation**: Optimization for range updates in Segment Trees.
+- **Sliding Window**: Solves problems involving subarrays of a fixed size.
+- **Two Pointers**: Uses two pointers to scan data, often used in arrays or linked lists.
+- **Fast and Slow Pointers**: Used to detect cycles (e.g., Floyd’s Cycle Detection).
+
+---
+
+This document covers the complete scope of definitions in DSA required from beginner to advanced level.
+
+
+
+**Time Complexity of Common Data Structures and Algorithms**
+
+---
+
+### Sorting Algorithms
+
+| Algorithm         | Best Case     | Average Case   | Worst Case     | Space Complexity |
+|------------------|---------------|----------------|----------------|------------------|
+| Bubble Sort      | O(n)          | O(n^2)         | O(n^2)         | O(1)             |
+| Insertion Sort   | O(n)          | O(n^2)         | O(n^2)         | O(1)             |
+| Selection Sort   | O(n^2)        | O(n^2)         | O(n^2)         | O(1)             |
+| Merge Sort       | O(n log n)    | O(n log n)     | O(n log n)     | O(n)             |
+| Quick Sort       | O(n log n)    | O(n log n)     | O(n^2)         | O(log n)         |
+| Heap Sort        | O(n log n)    | O(n log n)     | O(n log n)     | O(1)             |
+| Counting Sort    | O(n + k)      | O(n + k)       | O(n + k)       | O(k)             |
+| Radix Sort       | O(nk)         | O(nk)          | O(nk)          | O(n + k)         |
+| Bucket Sort      | O(n + k)      | O(n + k)       | O(n^2)         | O(n + k)         |
+
+---
+
+### Searching Algorithms
+
+| Algorithm         | Best Case     | Average Case   | Worst Case     | Space Complexity |
+|------------------|---------------|----------------|----------------|------------------|
+| Linear Search     | O(1)          | O(n)           | O(n)           | O(1)             |
+| Binary Search     | O(1)          | O(log n)       | O(log n)       | O(1)             |
+
+---
+
+### Data Structures
+
+#### Arrays
+| Operation         | Time Complexity |
+|------------------|-----------------|
+| Access           | O(1)            |
+| Search           | O(n)            |
+| Insertion        | O(n)            |
+| Deletion         | O(n)            |
+
+#### Linked Lists
+| Operation         | Singly LL | Doubly LL |
+|------------------|-----------|------------|
+| Search           | O(n)      | O(n)       |
+| Insertion        | O(1)      | O(1)       |
+| Deletion         | O(1)      | O(1)       |
+
+#### Stacks & Queues
+| Operation         | Time Complexity |
+|------------------|-----------------|
+| Push / Enqueue    | O(1)            |
+| Pop / Dequeue     | O(1)            |
+| Peek / Front      | O(1)            |
+
+#### Hash Tables
+| Operation         | Average Case | Worst Case |
+|------------------|--------------|------------|
+| Search           | O(1)         | O(n)       |
+| Insertion        | O(1)         | O(n)       |
+| Deletion         | O(1)         | O(n)       |
+
+#### Binary Search Tree (BST)
+| Operation         | Average Case   | Worst Case     |
+|------------------|----------------|----------------|
+| Search           | O(log n)       | O(n)           |
+| Insertion        | O(log n)       | O(n)           |
+| Deletion         | O(log n)       | O(n)           |
+
+#### AVL Tree / Red-Black Tree
+| Operation         | Time Complexity |
+|------------------|-----------------|
+| Search           | O(log n)        |
+| Insertion        | O(log n)        |
+| Deletion         | O(log n)        |
+
+#### Heaps (Min/Max)
+| Operation         | Time Complexity |
+|------------------|-----------------|
+| Insertion        | O(log n)        |
+| Get Min/Max      | O(1)            |
+| Deletion         | O(log n)        |
+
+---
+
+### Graph Algorithms
+
+| Algorithm             | Time Complexity            |
+|----------------------|----------------------------|
+| BFS / DFS            | O(V + E)                   |
+| Dijkstra's Algorithm | O(V^2) / O((V+E) log V)    |
+| Bellman-Ford         | O(VE)                      |
+| Floyd-Warshall       | O(V^3)                     |
+| Kruskal's Algorithm  | O(E log E)                 |
+| Prim's Algorithm     | O(E + log V)               |
+| Topological Sort     | O(V + E)                   |
+
+---
+
+### Dynamic Programming Examples
+
+| Problem                  | Time Complexity |
+|--------------------------|-----------------|
+| Fibonacci (memoized)     | O(n)            |
+| 0/1 Knapsack             | O(nW)           |
+| Longest Common Subseq.   | O(mn)           |
+| Matrix Chain Multiplic.  | O(n^3)          |
+| Edit Distance            | O(mn)           |
+
+
+
